@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: winning-numbers-backend
+spec:
+  selector:
+      matchLabels:
+        app: winning-numbers-backend
+        tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: winning-numbers-backend
+        tier: backend
+    spec:
+      containers:
+        - name: winning-numbers-backend
+          imagePullPolicy: Never
+          image: winning-numbers:latest
+          env:  
+            - name: MONGODB_HOST  
+              value: api-database
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1  
+kind: Service  
+metadata:  
+  name: winning-numbers-service  
+  labels:  
+    app: winning-numbers-service  
+spec:
+  type: LoadBalancer
+  ports:  
+    - name: http  
+      port: 80
+      targetPort: 8080
+  selector:  
+    app: winning-numbers-backend
+---  

@@ -10,6 +10,26 @@ docker build -t winning-numbers .
 docker-compose up
 ```
 
+If you want to run with kubernetes or minikube locally
+
+```bash
+kubectl apply -f deployment-mongo.yaml
+kubectl apply -f deployment-service.yaml
+```
+
+
+Also don't forget with minikube to reference local docker environment
+
+```bash
+eval $(minikube docker-env)
+```
+
+And if you work with minikube, you can open the service with
+
+```bash
+minikube service winning-numbers-service
+```
+
 ## Usage
 
 http://localhost:8080/swagger-ui.html#/jackpot-controller/
