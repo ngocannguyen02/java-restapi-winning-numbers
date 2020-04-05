@@ -35,6 +35,13 @@ minikube service winning-numbers-service
 http://localhost:8080/swagger-ui.html#/jackpot-controller/
 
 
+## Misc
+
+A gitlab pipeline is available (.gitlab-ci.yml). TODO Another useful to do would be to create a JenkinsFile which is most used by others. Already used at work but I prefer gitLab.
+Interesting to be able to run locally your jenkins pipeline with docker
+https://hub.docker.com/r/ppiper/jenkinsfile-runner
+
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
